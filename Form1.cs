@@ -22,8 +22,8 @@ namespace WinformNPGSQL
 		{
 			db.AddTodo(InputTodo);
 			MessageBox.Show("Berhasil Simpan");
-			gridTodo.Rows.Clear();
-			db
+			boxTodo.Clear();
+			gridTodo.DataSource = db.GetTodo();
 		}
 	}
 }
