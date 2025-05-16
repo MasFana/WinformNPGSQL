@@ -6,11 +6,14 @@ namespace WinformNPGSQL
 	public partial class Form1 : Form
 	{
 		string InputTodo;
+		int SelectedCellId;
 		DatabaseHandler db = new DatabaseHandler();
 		public Form1()
 		{
 			InitializeComponent();
 			gridTodo.DataSource = db.GetTodo();
+			gridTodo.Columns["id"].Visible = true;
+
 		}
 
 		private void boxTodo_TextChanged(object sender, EventArgs e)
@@ -20,13 +23,64 @@ namespace WinformNPGSQL
 
 		private void buttonSimpan_Click(object sender, EventArgs e)
 		{
-			db.AddTodo(InputTodo);
-			MessageBox.Show("Berhasil Simpan");
-			boxTodo.Clear();
+			if (string.IsNullOrEmpty(InputTodo))
+			{
+				MessageBox.Show("Teks tidak boleh kosong");
+				return;
+			}
+			if (SelectedCellId > 0)
+			{
+				db.UpdateTodo(SelectedCellId, InputTodo);
+				MessageBox.Show("Berhasil Update");
+				SelectedCellId = -1;
+				boxTodo.Clear();
+				gridTodo.DataSource = db.GetTodo();
+
+			}
+			else
+			{
+				db.AddTodo(InputTodo);
+				MessageBox.Show("Berhasil Simpan");
+				boxTodo.Clear();
+				gridTodo.DataSource = db.GetTodo();
+			}
+		}
+
+		private void gridTodo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.RowIndex >= 0 && e.ColumnIndex >= 0 && e.RowIndex < gridTodo.RowCount - 1)
+			{
+				SelectedCellId = (int)gridTodo.Rows[e.RowIndex].Cells["id"].Value;
+				var cellValue = gridTodo.Rows[e.RowIndex].Cells["teks"].Value;
+				boxTodo.Text = cellValue?.ToString();
+				label1.Text = "" + SelectedCellId.ToString();
+
+			}
+		}
+
+		private void buttonHapus_Click(object sender, EventArgs e)
+		{
+			db.DeleteTodo(SelectedCellId);
+			SelectedCellId = -1;
 			gridTodo.DataSource = db.GetTodo();
+			boxTodo.Clear();
+			label1.Text = "" + SelectedCellId.ToString();
+
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			SelectedCellId = -1;
+			label1.Text = "" + SelectedCellId.ToString();
+		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
+
 
 
 public class DatabaseHandler
