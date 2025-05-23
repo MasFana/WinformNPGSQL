@@ -21,6 +21,7 @@ namespace WinformNPGSQL
 				gridTodo.Columns["id"].Visible = false;
 			}
 		}
+
 		public ViewTodo()
 		{
 			InitializeComponent();

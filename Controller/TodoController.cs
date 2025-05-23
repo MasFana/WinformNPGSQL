@@ -6,7 +6,7 @@ using WinformNPGSQL.Database;
 using WinformNPGSQL.Model;
 namespace WinformNPGSQL.Controller
 {
-	public class TodoController
+	public class TodoController : ITodoController
 	{
 
 		public List<Todo> GetAllTodos()
