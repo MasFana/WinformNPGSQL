@@ -72,11 +72,21 @@ namespace WinformNPGSQL
 
 		private void buttonHapus_Click(object sender, EventArgs e)
 		{
+			DialogResult result = MessageBox.Show(
+				"Aakah yakin ingin Menghapus?",
+				"Hapus",
+				MessageBoxButtons.YesNo,
+				MessageBoxIcon.Question,
+				MessageBoxDefaultButton.Button2); // Default to "No");
+			
+			if(result == DialogResult.Yes)
+			{	
 			_todoController.DeleteTodo(SelectedCellId);
 			SelectedCellId = -1;
 			boxTodo.Clear();
 			label1.Text = "" + SelectedCellId.ToString();
 			RefreshTodo();
+			}
 
 		}
 
