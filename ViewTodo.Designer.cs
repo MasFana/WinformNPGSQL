@@ -1,6 +1,6 @@
 ﻿namespace WinformNPGSQL
 {
-    partial class Form1
+    partial class ViewTodo
     {
         /// <summary>
         ///  Required designer variable.

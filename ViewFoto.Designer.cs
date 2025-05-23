@@ -1,6 +1,6 @@
 ﻿namespace WinformNPGSQL
 {
-	partial class ViewDashboard
+	partial class ViewFoto
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,52 +28,47 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewDashboard));
 			pictureBox1 = new PictureBox();
-			flowLayoutPanel1 = new FlowLayoutPanel();
 			button1 = new Button();
 			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-			flowLayoutPanel1.SuspendLayout();
 			SuspendLayout();
 			// 
 			// pictureBox1
 			// 
-			resources.ApplyResources(pictureBox1, "pictureBox1");
+			pictureBox1.Image = Properties.Resources.Sus___Amogus_pin___Amogus_funny___Amogus_talking___amogus___biglips;
+			pictureBox1.Location = new Point(26, 29);
 			pictureBox1.Name = "pictureBox1";
+			pictureBox1.Size = new Size(416, 381);
+			pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+			pictureBox1.TabIndex = 3;
 			pictureBox1.TabStop = false;
-			pictureBox1.Click += pictureBox1_Click;
-			// 
-			// flowLayoutPanel1
-			// 
-			flowLayoutPanel1.BackColor = SystemColors.Highlight;
-			flowLayoutPanel1.Controls.Add(pictureBox1);
-			flowLayoutPanel1.Controls.Add(button1);
-			resources.ApplyResources(flowLayoutPanel1, "flowLayoutPanel1");
-			flowLayoutPanel1.Name = "flowLayoutPanel1";
 			// 
 			// button1
 			// 
-			resources.ApplyResources(button1, "button1");
+			button1.Location = new Point(448, 29);
 			button1.Name = "button1";
+			button1.Size = new Size(75, 23);
+			button1.TabIndex = 4;
+			button1.Text = "Tutup";
 			button1.UseVisualStyleBackColor = true;
 			button1.Click += button1_Click;
 			// 
-			// ViewDashboard
+			// ViewFoto
 			// 
-			resources.ApplyResources(this, "$this");
+			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			Controls.Add(flowLayoutPanel1);
-			IsMdiContainer = true;
-			Name = "ViewDashboard";
+			ClientSize = new Size(625, 450);
+			Controls.Add(button1);
+			Controls.Add(pictureBox1);
+			FormBorderStyle = FormBorderStyle.None;
+			Name = "ViewFoto";
+			Text = "ViewFoto";
 			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-			flowLayoutPanel1.ResumeLayout(false);
 			ResumeLayout(false);
 		}
 
 		#endregion
-
 		private PictureBox pictureBox1;
-		private FlowLayoutPanel flowLayoutPanel1;
 		private Button button1;
 	}
 }
