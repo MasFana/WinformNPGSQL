@@ -1,4 +1,8 @@
 # WinformNPGSQL - Aplikasi Praktikum PBO C
+
+## Class Diagram
+![Diagram](Fana's WinfromNPGSQL.png)
+
 ## Struktur Projek
 ```
 ├── Controller

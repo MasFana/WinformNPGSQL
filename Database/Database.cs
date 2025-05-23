@@ -24,7 +24,7 @@ namespace WinformNPGSQL.Database
 			conn.Close();
 		}
 
-		public static DataTable ExecuteQuery(string query)
+		public static DataTable ExecuteQuery(string query, params NpgsqlParameter[] parameters)
         {
             Open();
             DataTable dt = new DataTable();
@@ -32,7 +32,8 @@ namespace WinformNPGSQL.Database
             {
                 using (var reader = cmd.ExecuteReader())
                 {
-                    dt.Load(reader);
+					cmd.Parameters.AddRange(parameters);
+					dt.Load(reader);
                 }
             }
             return dt;
