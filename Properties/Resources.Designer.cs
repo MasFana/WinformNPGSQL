@@ -63,6 +63,16 @@ namespace WinformNPGSQL.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Frieren___Sousou_no_Frieren {
+            get {
+                object obj = ResourceManager.GetObject("Frieren _ Sousou no Frieren", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Sus___Amogus_pin___Amogus_funny___Amogus_talking___amogus___biglips {
             get {
                 object obj = ResourceManager.GetObject("Sus _ Amogus pin _ Amogus funny _ Amogus talking _ amogus _ biglips", resourceCulture);

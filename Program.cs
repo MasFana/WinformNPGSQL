@@ -1,6 +1,3 @@
-using WinformNPGSQL.Controller;
-using WinformNPGSQL.Model.Todo;
-
 namespace WinformNPGSQL
 {
     internal static class Program
@@ -15,15 +12,6 @@ namespace WinformNPGSQL
 			//// see https://aka.ms/applicationconfiguration.
 			ApplicationConfiguration.Initialize();
 			Application.Run(new ViewDashboard());
-
-			//TodoController _todoController = new TodoController();
-			//List<Todo> listTodo;
-			//string InputTodo;
-			//int SelectedCellId;
-
-			//listTodo = _todoController.GetAllTodos();
-			//Console.WriteLine(listTodo);
-
 
 		}
     }

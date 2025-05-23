@@ -29,34 +29,43 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewDashboard));
-			pictureBox1 = new PictureBox();
 			flowLayoutPanel1 = new FlowLayoutPanel();
-			button1 = new Button();
-			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+			buttonPicture = new Button();
+			buttonTodo = new Button();
+			pictureBox1 = new PictureBox();
 			flowLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
 			SuspendLayout();
-			// 
-			// pictureBox1
-			// 
-			resources.ApplyResources(pictureBox1, "pictureBox1");
-			pictureBox1.Name = "pictureBox1";
-			pictureBox1.TabStop = false;
-			pictureBox1.Click += pictureBox1_Click;
 			// 
 			// flowLayoutPanel1
 			// 
-			flowLayoutPanel1.BackColor = SystemColors.Highlight;
+			flowLayoutPanel1.BackColor = SystemColors.ControlText;
 			flowLayoutPanel1.Controls.Add(pictureBox1);
-			flowLayoutPanel1.Controls.Add(button1);
+			flowLayoutPanel1.Controls.Add(buttonPicture);
+			flowLayoutPanel1.Controls.Add(buttonTodo);
 			resources.ApplyResources(flowLayoutPanel1, "flowLayoutPanel1");
 			flowLayoutPanel1.Name = "flowLayoutPanel1";
 			// 
-			// button1
+			// buttonPicture
 			// 
-			resources.ApplyResources(button1, "button1");
-			button1.Name = "button1";
-			button1.UseVisualStyleBackColor = true;
-			button1.Click += button1_Click;
+			resources.ApplyResources(buttonPicture, "buttonPicture");
+			buttonPicture.Name = "buttonPicture";
+			buttonPicture.UseVisualStyleBackColor = true;
+			buttonPicture.Click += buttonPicture_Click;
+			// 
+			// buttonTodo
+			// 
+			resources.ApplyResources(buttonTodo, "buttonTodo");
+			buttonTodo.Name = "buttonTodo";
+			buttonTodo.UseVisualStyleBackColor = true;
+			buttonTodo.Click += buttonTodo_Click;
+			// 
+			// pictureBox1
+			// 
+			pictureBox1.Image = Properties.Resources.Frieren___Sousou_no_Frieren;
+			resources.ApplyResources(pictureBox1, "pictureBox1");
+			pictureBox1.Name = "pictureBox1";
+			pictureBox1.TabStop = false;
 			// 
 			// ViewDashboard
 			// 
@@ -65,15 +74,15 @@
 			Controls.Add(flowLayoutPanel1);
 			IsMdiContainer = true;
 			Name = "ViewDashboard";
-			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			flowLayoutPanel1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
 			ResumeLayout(false);
 		}
 
 		#endregion
-
-		private PictureBox pictureBox1;
 		private FlowLayoutPanel flowLayoutPanel1;
-		private Button button1;
+		private Button buttonPicture;
+		private Button buttonTodo;
+		private PictureBox pictureBox1;
 	}
 }

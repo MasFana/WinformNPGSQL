@@ -1,8 +1,9 @@
 ﻿using Npgsql;
-using WinformNPGSQL.Model.Todo;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using WinformNPGSQL.Database;
+using WinformNPGSQL.Model;
 namespace WinformNPGSQL.Controller
 {
 	public class TodoController
@@ -10,30 +11,37 @@ namespace WinformNPGSQL.Controller
 
 		public List<Todo> GetAllTodos()
 		{
-
-			List<Todo> todos = new List<Todo>();
-			DataTable dt = db.Database.ExecuteQuery("SELECT * FROM todo");
-			foreach (DataRow row in dt.Rows)
+			try
 			{
-				Todo todo = new(Convert.ToInt32(row["id"]), row["teks"].ToString() ?? string.Empty);
-				todos.Add(todo);
+				List<Todo> todos = new List<Todo>();
+				DataTable dt = DB.ExecuteQuery("SELECT * FROM todo");
+				foreach (DataRow row in dt.Rows)
+				{
+					Todo todo = new(Convert.ToInt32(row["id"]), row["teks"].ToString());
+					todos.Add(todo);
+				}
+				return todos;
 			}
-			return todos;
+			catch (Exception ex)
+			{
+				MessageBox.Show($"Database error: {ex.Message}");
+				return new List<Todo>();
+			}
 		}
 
 		public void AddTodo(string todoText)
 		{
-			db.Database.ExecuteNonQuery("INSERT INTO todo(teks) VALUES(@teks)", new NpgsqlParameter("@teks", todoText));
+			DB.ExecuteNonQuery("INSERT INTO todo(teks) VALUES(@teks)", new NpgsqlParameter("@teks", todoText));
 		}
 
 		public void UpdateTodo(int id, string todoText)
 		{
-			db.Database.ExecuteNonQuery("UPDATE todo SET teks = @teks WHERE id = @id", new NpgsqlParameter("@teks", todoText), new NpgsqlParameter("@id", id));
+			DB.ExecuteNonQuery("UPDATE todo SET teks = @teks WHERE id = @id", new NpgsqlParameter("@teks", todoText), new NpgsqlParameter("@id", id));
 		}
 
 		public void DeleteTodo(int id)
 		{
-			db.Database.ExecuteNonQuery("DELETE FROM todo WHERE id = @id", new NpgsqlParameter("@id", id));
+			DB.ExecuteNonQuery("DELETE FROM todo WHERE id = @id", new NpgsqlParameter("@id", id));
 		}
 	}
 }

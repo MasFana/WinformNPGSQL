@@ -8,31 +8,34 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinformNPGSQL.Controller;
-using WinformNPGSQL.db;
+using WinformNPGSQL.Database;
 
 namespace WinformNPGSQL
 {
 	public partial class ViewDashboard : Form
 	{
-		DashboardController dashboardController = new DashboardController();
+		NavigationController navigationController = new NavigationController();
 		public ViewDashboard()
 		{
 			InitializeComponent();
+			navigationController.NavigateTodo(this);
 		}
 
-		private void pictureBox1_Click(object sender, EventArgs e)
+
+		private void buttonPicture_Click(object sender, EventArgs e)
 		{
-			dashboardController.NavigateTodo(this);
+			navigationController.NavigateViewFoto(this);
 		}
 
-		private void button1_Click(object sender, EventArgs e)
+		private void buttonTodo_Click(object sender, EventArgs e)
 		{
-			dashboardController.NavigateViewFoto(this);
+			navigationController.NavigateTodo(this);
+
 		}
 
 		~ViewDashboard()
 		{
-			Database.Close();
+			DB.Close();
 		}
 	}
 }

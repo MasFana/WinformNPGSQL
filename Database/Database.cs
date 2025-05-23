@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
 
-namespace WinformNPGSQL.db
+namespace WinformNPGSQL.Database
 {
-	public static class Database
+	public static class DB
 	{
 		public static NpgsqlConnection conn = new NpgsqlConnection("Host=localhost;Username=postgres;Password=postgres;Database=pbo");
 		public static void Open()

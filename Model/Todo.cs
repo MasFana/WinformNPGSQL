@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WinformNPGSQL.Model.Todo
+namespace WinformNPGSQL.Model
 {
-	public class Todo 
+	public class Todo
 	{
-		public int id;
-		public string teks;
+		public int id { get; set; }
+		public string teks { get; set; }
 
 		public Todo(int id, string teks)
 		{
@@ -18,5 +18,5 @@ namespace WinformNPGSQL.Model.Todo
 			this.teks = teks;
 		}
 	}
-	
+
 }

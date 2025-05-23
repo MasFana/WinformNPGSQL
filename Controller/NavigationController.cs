@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinformNPGSQL.Controller
 {
-	public class DashboardController
+	public class NavigationController
 	{
 		Form? formTerbuka;
 
